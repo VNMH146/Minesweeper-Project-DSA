@@ -25,9 +25,9 @@ function setMines() {
   while (minesLeft > 0) {
     let r = Math.floor(Math.random() * rows);
     let c = Math.floor(Math.random() * columns);
-    let id  = r.toString() + "-" + c.toString();
+    let id = r.toString() + "-" + c.toString();
 
-    if(!minesLocation.includes(id)) {
+    if (!minesLocation.includes(id)) {
       minesLocation.push(id);
       minesLeft -= 1;
     }
@@ -64,7 +64,7 @@ function setFlag() {
 }
 
 function clickTile() {
-  if(gameOver || this.classList.contains("tile-clicked")) {
+  if (gameOver || this.classList.contains("tile-clicked")) {
     return;
   }
 
@@ -106,7 +106,7 @@ function revealMines() {
 }
 
 function checkMine(r, c) {
-  if (r < 0 || r > rows || c >= columns) {
+  if (r < 0 || r >= rows || c < 0 || c >= columns) {
     return;
   }
   if (board[r][c].classList.contains("tile-clicked")) {
@@ -143,7 +143,7 @@ function checkMine(r, c) {
     checkMine(r, c + 1);
 
     checkMine(r + 1, c - 1);
-    checkMine(r + 1, c );
+    checkMine(r + 1, c);
     checkMine(r + 1, c + 1);
   }
 
@@ -154,7 +154,7 @@ function checkMine(r, c) {
 }
 
 function checkTile(r, c) {
-  if (r < 0 || r > rows || c >= columns) {
+  if (r < 0 || r > rows || c < 0 || c >= columns) {
     return 0;
   }
   if (minesLocation.includes(r.toString() + "-" + c.toString())) {
