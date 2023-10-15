@@ -10,6 +10,9 @@ body {
   height: 400px;
   border: 10px solid #16c8e9;
   background-color: lightgray;
+  
+  
+  
 
   /*Move the board to center*/
   margin: 0 auto;
@@ -22,12 +25,19 @@ body {
   width: 48px;
   height: 48px;
   border: 1px solid whitesmoke;
-
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
   /*text*/
   font-size: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#board div:hover {
+  background-color: #49c9e0;
+  transition: 0.5s;
 }
 
 .tile-clicked {
@@ -67,10 +77,33 @@ body {
 }
 
 #flag-btn {
-  width: 100px;
+  width: 120px;
   height: 50px;
   font-size: 20px;
   background-color: lightgray;
   border: none;
   border-radius: 15px;
+
+}
+
+#flag-btn:hover {
+  background-color: white;
+  transition: 0.6s;
+  cursor: pointer;
+}
+
+#redo {
+  width: 120px;
+  height: 50px;
+  font-size: 20px;
+  background-color: lightgray;
+  border: none;
+  border-radius: 15px;
+
+}
+
+#redo:hover {
+  background-color: white;
+  transition: 0.6s;
+  cursor: pointer;
 }
