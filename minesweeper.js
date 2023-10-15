@@ -162,3 +162,24 @@ function checkTile(r, c) {
   }
   return 0;
 }
+
+//--------------------
+function redo() {
+  // Reset variables and board
+  tilesClicked = 0;
+  flagEnabled = false;
+  gameOver = false;
+  minesLocation = [];
+
+  // Remove existing tiles from the board
+  var boardElement = document.getElementById("board");
+  while (boardElement.firstChild) {
+    boardElement.firstChild.remove();
+  }
+
+  // Start the game again
+  startGame();
+}
+
+// Event listener for redo button
+document.getElementById("redo").addEventListener("click", redo);
