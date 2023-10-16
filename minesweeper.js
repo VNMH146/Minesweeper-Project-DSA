@@ -10,10 +10,14 @@ var flagEnabled = false;
 
 var gameOver = false;
 
+var undoLocation = [];
+
 window.onload = function () {
   startGame();
-  document.getElementById("play-again-btn").addEventListener("click", resetGame);
-}
+  document
+    .getElementById("play-again-btn")
+    .addEventListener("click", resetGame);
+};
 
 function setMines() {
   // minesLocation.push("2-2");
@@ -36,9 +40,9 @@ function setMines() {
 }
 
 function startGame() {
-
   document.getElementById("mines-count").innerText = minesCount;
   document.getElementById("flag-btn").addEventListener("click", setFlag);
+  document.getElementById("undo-btn").onclick = undo;
   setMines();
   for (let r = 0; r < rows; r++) {
     let row = [];
@@ -54,8 +58,6 @@ function startGame() {
   console.log(board);
 }
 
-
-
 function resetGame() {
   // Clear the board
   document.getElementById("board").innerHTML = "";
@@ -69,12 +71,9 @@ function resetGame() {
 
   // Start a new game
   startGame();
-
 }
 
-
 // Add event listener to the "Play Again" button
-
 
 function setFlag() {
   if (flagEnabled) {
@@ -95,42 +94,50 @@ function clickTile() {
   if (flagEnabled) {
     if (tile.innerText == "") {
       tile.innerText = "🚩";
-    }
-    else if (tile.innerText == "🚩") {
+    } else if (tile.innerText == "🚩") {
       tile.innerText = "";
     }
     return;
   }
 
+  let coords = tile.id.split("-");
   if (minesLocation.includes(tile.id)) {
     //alert("GAME OVER!!!");
     gameOver = true;
+    undoLocation = coords;
     revealMines();
     return;
   }
 
-  let coords = tile.id.split("-")
   let r = parseInt(coords[0]);
   let c = parseInt(coords[1]);
   checkMine(r, c);
 }
-
-function revealMines() {
-  for (let r = 0; r < rows; r++) {
-    for (let c = 0; c < columns; c++) {
-      let tile = board[r][c];
-      if (minesLocation.includes(tile.id)) {
-        tile.innerText = "💥";
-        tile.style.backgroundColor = "#f1a10e";
-      }
-    }
-
-  }
+function undo() {
+  gameOver = false;
+  let ur = parseInt(undoLocation[0]);
+  let uc = parseInt(undoLocation[1]);
+  board[ur][uc].innerText = "";
+  board[ur][uc].style.backgroundColor = "unset";
 }
 
-
-
-
+function revealMines() {
+  let ur = parseInt(undoLocation[0]);
+  let uc = parseInt(undoLocation[1]);
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < columns; c++) {
+      if (r == ur && c == uc) {
+        console.log("a");
+        let tile = board[r][c];
+        // if (minesLocation.includes(tile.id)) {
+        tile.innerText = "💥";
+        tile.style.backgroundColor = "#f1a10e";
+        // }
+      //  return;
+      }
+    }
+  }
+}
 
 function checkMine(r, c) {
   if (r < 0 || r >= rows || c < 0 || c >= columns) {
@@ -150,7 +157,7 @@ function checkMine(r, c) {
   minesFound += checkTile(r - 1, c + 1); //top right
 
   //left and right
-  minesFound += checkTile(r, c - 1);  //left
+  minesFound += checkTile(r, c - 1); //left
   minesFound += checkTile(r, c + 1); //right
 
   //bottom
@@ -189,7 +196,5 @@ function checkTile(r, c) {
   }
   return 0;
 }
-
-
 
 //--------------------
