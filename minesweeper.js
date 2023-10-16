@@ -79,10 +79,10 @@ function resetGame() {
 function setFlag() {
   if (flagEnabled) {
     flagEnabled = false;
-    document.getElementById("flag-btn").style.backgroundColor = "lightgray";
+    document.getElementById("flag-btn").style.backgroundColor = "white";
   } else {
     flagEnabled = true;
-    document.getElementById("flag-btn").style.backgroundColor = "darkgray";
+    document.getElementById("flag-btn").style.backgroundColor = "lightgray";
   }
 }
 
