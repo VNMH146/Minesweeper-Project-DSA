@@ -2,7 +2,7 @@ var board = [];
 var rows = 8;
 var columns = 8;
 
-var minesCount = 10;
+var minesCount = 5;
 var minesLocation = [];
 
 var tilesClicked = 0;
@@ -12,6 +12,7 @@ var gameOver = false;
 
 window.onload = function () {
   startGame();
+  document.getElementById("play-again-btn").addEventListener("click", resetGame);
 }
 
 function setMines() {
@@ -52,6 +53,28 @@ function startGame() {
   }
   console.log(board);
 }
+
+
+
+function resetGame() {
+  // Clear the board
+  document.getElementById("board").innerHTML = "";
+
+  // Reset game variables
+  board = [];
+  minesLocation = [];
+  tilesClicked = 0;
+  flagEnabled = false;
+  gameOver = false;
+
+  // Start a new game
+  startGame();
+
+}
+
+
+// Add event listener to the "Play Again" button
+
 
 function setFlag() {
   if (flagEnabled) {
@@ -104,6 +127,10 @@ function revealMines() {
 
   }
 }
+
+
+
+
 
 function checkMine(r, c) {
   if (r < 0 || r >= rows || c < 0 || c >= columns) {
@@ -162,5 +189,7 @@ function checkTile(r, c) {
   }
   return 0;
 }
+
+
 
 //--------------------
