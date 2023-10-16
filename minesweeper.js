@@ -97,8 +97,8 @@ function revealMines() {
     for (let c = 0; c < columns; c++) {
       let tile = board[r][c];
       if (minesLocation.includes(tile.id)) {
-        tile.innerText = "💣";
-        tile.style.backgroundColor = "red";
+        tile.innerText = "💥";
+        tile.style.backgroundColor = "#f1a10e";
       }
     }
 
@@ -164,22 +164,3 @@ function checkTile(r, c) {
 }
 
 //--------------------
-function redo() {
-  // Reset variables and board
-  tilesClicked = 0;
-  flagEnabled = false;
-  gameOver = false;
-  minesLocation = [];
-
-  // Remove existing tiles from the board
-  var boardElement = document.getElementById("board");
-  while (boardElement.firstChild) {
-    boardElement.firstChild.remove();
-  }
-
-  // Start the game again
-  startGame();
-}
-
-// Event listener for redo button
-document.getElementById("redo").addEventListener("click", redo);
