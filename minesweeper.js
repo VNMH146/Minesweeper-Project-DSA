@@ -2,6 +2,8 @@ var board = [];
 var rows = 8;
 var columns = 8;
 
+var explosionSound = new Audio('621000__samsterbirdies__cannon-explosion-sound.wav');
+
 var minesCount = 5;
 var minesLocation = [];
 
@@ -9,10 +11,7 @@ var tilesClicked = 0;
 var flagEnabled = false;
 
 var gameOver = false;
-
 var undoLocation = [];
-var explosionSound = new Audio('621000__samsterbirdies__cannon-explosion-sound.wav');
-
 window.onload = function () {
   startGame();
   document
