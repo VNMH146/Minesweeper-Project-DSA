@@ -11,6 +11,7 @@ var flagEnabled = false;
 var gameOver = false;
 
 var undoLocation = [];
+var explosionSound = new Audio('621000__samsterbirdies__cannon-explosion-sound.wav');
 
 window.onload = function () {
   startGame();
@@ -121,6 +122,12 @@ function undo() {
   board[ur][uc].style.backgroundColor = "unset";
 }
 
+var explosionSound = new Audio('621000__samsterbirdies__cannon-explosion-sound.wav');
+
+function playExplosionSound() {
+    explosionSound.play();
+}
+
 function revealMines() {
   let ur = parseInt(undoLocation[0]);
   let uc = parseInt(undoLocation[1]);
@@ -132,12 +139,13 @@ function revealMines() {
         // if (minesLocation.includes(tile.id)) {
         tile.innerText = "💥";
         tile.style.backgroundColor = "#f1a10e";
-        // }
-      //  return;
+        explosionSound.play();
       }
     }
   }
 }
+
+
 
 function checkMine(r, c) {
   if (r < 0 || r >= rows || c < 0 || c >= columns) {
