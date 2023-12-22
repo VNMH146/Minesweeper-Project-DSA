@@ -2,7 +2,6 @@ var board = [];
 var rows = 8;
 var columns = 8;
 
-var explosionSound = new Audio('621000__samsterbirdies__cannon-explosion-sound.wav');
 
 var minesCount = 5;
 var minesLocation = [];
@@ -121,11 +120,6 @@ function undo() {
   board[ur][uc].style.backgroundColor = "unset";
 }
 
-var explosionSound = new Audio('621000__samsterbirdies__cannon-explosion-sound.wav');
-
-function playExplosionSound() {
-    explosionSound.play();
-}
 
 function revealMines() {
   let ur = parseInt(undoLocation[0]);

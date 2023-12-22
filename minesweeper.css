@@ -17,16 +17,18 @@ h1 {
   color: rgba(132, 9, 132, 0.679);
 }
 
-#board {
-  width: 420px;
-  height: 420px;
+#board  {
+  width: 410px;
+  height: 410px;
+    border: 2px solid whitesmoke;
   background-color: #222;
-  margin: 20px auto;
-  display: grid;
+  margin: 1 auto;
+  display: flex;
   grid-template-columns: repeat(8, 1fr);
-  grid-gap: 5px;
   padding: 10px;
   box-shadow: 0 0 25px rgb(244, 248, 250);
+  flex-wrap: wrap;
+
 }
 
 #board div {
@@ -34,13 +36,14 @@ h1 {
   height: 45px;
   font-weight: bold;
   cursor: pointer;
-  font-size: 28px;
+  font-size: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #444;
   border-radius: 15%;
   transition: background-color 0.4s, transform 0.2s;
+  border: 2px solid whitesmoke;
+  margin-right: 3px;
 }
 
 #board div:hover {
@@ -49,13 +52,16 @@ h1 {
 }
 
 .tile-clicked {
-  background-color: #000;
+  background-color: #958b8b97;
   color: #fff;
+  font-weight: bold;
 }
 
 .x1, .x2, .x3, .x4, .x5, .x6, .x7, .x8 {
-  color: #fff;
+  color: white;
 }
+
+
 
 button {
   width: 130px;
