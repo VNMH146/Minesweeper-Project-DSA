@@ -17,10 +17,10 @@ h1 {
   color: rgba(132, 9, 132, 0.679);
 }
 
-#board  {
+#board {
   width: 410px;
   height: 410px;
-    border: 2px solid whitesmoke;
+  border: 2px solid whitesmoke;
   background-color: #222;
   margin: 1 auto;
   display: flex;
@@ -57,25 +57,32 @@ h1 {
   font-weight: bold;
 }
 
-.x1, .x2, .x3, .x4, .x5, .x6, .x7, .x8 {
+.x1,
+.x2,
+.x3,
+.x4,
+.x5,
+.x6,
+.x7,
+.x8 {
   color: white;
 }
 
 
 
 button {
-  width: 130px;
-  height: 45px;
-  font-size: 16px;
+  width: 100px;
+  height: 40px;
+  font-size: 15px;
   background: linear-gradient(to right, #666666, #000000);
   border: none;
-  border-radius: 30px;
+  border-radius: 20px;
   margin-top: 25px;
   cursor: pointer;
   color: #ffffff;
   text-transform: uppercase;
   letter-spacing: 2px;
-  transition: all 0.7s ease-in-out;
+  transition: all 0.2s ease-in-out;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -83,4 +90,13 @@ button:hover {
   background: linear-gradient(to right, #115d93, #c710f5);
   transform: scale(1.05);
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+#quantity {
+  width: 50px;
+  height: 30px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 5px;
+  font-size: 16px;
 }

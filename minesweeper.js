@@ -11,11 +11,12 @@ var flagEnabled = false;
 
 var gameOver = false;
 var undoLocation = [];
+
 window.onload = function () {
   startGame();
-  document
-    .getElementById("play-again-btn")
-    .addEventListener("click", resetGame);
+  document.getElementById("quantity").addEventListener("input", changeMines);
+  document.getElementById("play-again-btn").addEventListener("click", resetGame);
+
 };
 
 function setMines() {
@@ -59,7 +60,8 @@ function startGame() {
 
 function resetGame() {
   // Clear the board
-  document.getElementById("board").innerHTML = "";
+  document.getElementById("board").innerHTML = ""
+  document.getElementById("quantity").value = minesCount;
 
   // Reset game variables
   board = [];
@@ -120,6 +122,17 @@ function undo() {
   board[ur][uc].style.backgroundColor = "unset";
 }
 
+// function increaseMines() {
+//   minesCount += 1;
+//   resetGame();
+// }
+function changeMines() {
+  let quantity = parseInt(document.getElementById("quantity").value);
+  if (quantity > 0) {
+    minesCount = quantity;
+    resetGame();
+  }
+}
 
 function revealMines() {
   let ur = parseInt(undoLocation[0]);
