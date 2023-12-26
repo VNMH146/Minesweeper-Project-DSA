@@ -20,11 +20,7 @@ window.onload = function () {
 };
 
 function setMines() {
-  // minesLocation.push("2-2");
-  // minesLocation.push("2-3");
-  // minesLocation.push("5-6");
-  // minesLocation.push("3-4");
-  // minesLocation.push("1-1");
+
 
   let minesLeft = minesCount;
   while (minesLeft > 0) {
@@ -79,10 +75,10 @@ function resetGame() {
 function setFlag() {
   if (flagEnabled) {
     flagEnabled = false;
-    document.getElementById("flag-btn").style.backgroundColor = "white";
+    document.getElementById("flag-btn").style.backgroundColor = "red";
   } else {
     flagEnabled = true;
-    document.getElementById("flag-btn").style.backgroundColor = "lightgray";
+    document.getElementById("flag-btn").style.backgroundColor = "white";
   }
 }
 
@@ -122,10 +118,6 @@ function undo() {
   board[ur][uc].style.backgroundColor = "unset";
 }
 
-// function increaseMines() {
-//   minesCount += 1;
-//   resetGame();
-// }
 function changeMines() {
   let quantity = parseInt(document.getElementById("quantity").value);
   if (quantity > 0) {
