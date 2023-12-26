@@ -14,7 +14,7 @@ h1 {
   font-size: 2em;
   font-weight: 300;
   letter-spacing: 2px;
-  color: rgba(132, 9, 132, 0.679);
+  color: rgb(250, 2, 250);
 }
 
 #board {
@@ -92,11 +92,3 @@ button:hover {
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-#quantity {
-  width: 50px;
-  height: 30px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 5px;
-  font-size: 16px;
-}
