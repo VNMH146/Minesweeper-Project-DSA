@@ -5,19 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Minesweeper</title>
   <link rel="stylesheet" href="minesweeper.css">
-  <script src="minesweeper.js"></script>
-  <script src="sound.js"></script>
+  <script src="../Controller/main.js"></script>
+  <script src="../Model/model.js"></script>
+  <script src="../View/view.js"></script>
+  <script src="../Controller/controller.js"></script>
+  <script src="../View/sound/sound.js"></script>
 
 </head>
 
 <body>
   <audio autoplay loop>
-    <!--<source src="414046__tyops__fantasy-gaming-intro.wav" type="audio/wav">-->
+    <source src="../View/sound/414046__tyops__fantasy-gaming-intro.wav" type="audio/wav">
   </audio>
   <h1>Mines: <span id="mines-count">0</span></h1>
   <i class="fas fa-heart"></i>
-  <div id="board"></div>
 
+  <main>
+    <div id="board" role="grid"></div>
+  </main>
   <br>
 
   <div>
@@ -27,7 +32,6 @@
     <input type="number" id="quantity" name="quantity" value="5" min="5">
 
   </div>
-
 
 
 </body>
